@@ -5,33 +5,44 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed = 5f; // Speed of the player
-    public float turnSpeed = 5f; // Force of the player's jump
+    public float turnSpeed = 2f; // Force of the player's jump
+    public Transform playerView;
+    private float xRotation = 0f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        Cursor.lockState = CursorLockMode.Locked;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Get input from the horizontal and vertical axes (WASD or Arrow Keys)
+        HandleMovement();
+        HandleMouseLook();
+    }
+
+    void HandleMovement()
+    {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        // Calculate the movement direction based on input
-        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput).normalized;
-
-        // Move the player in the direction of the input
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput) * speed * Time.deltaTime;
         transform.Translate(movement * speed * Time.deltaTime, Space.World);
-
-        // If there is movement input, rotate the player to face the movement direction
-        if (movement.magnitude > 0)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, turnSpeed * Time.deltaTime);
-        }
-
     }
+
+    void HandleMouseLook()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * turnSpeed;
+        float mouseY = Input.GetAxis("Mouse Y") * turnSpeed;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        playerView.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
+    }   
+
+
 }
