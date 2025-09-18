@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//This Script allows the player to control their character
+//This Script allows the player to control their character 
 public class PlayerController : MonoBehaviour
 {
 
