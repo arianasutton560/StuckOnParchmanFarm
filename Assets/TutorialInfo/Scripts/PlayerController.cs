@@ -5,7 +5,8 @@ public class PlayerController : MonoBehaviour
 {
 
     public float speed = 5f; // Speed of the player
-    public float turnSpeed = 2f; // Force of the player's jump
+    public float turnSpeedX = 5f; // Force of the player's jump
+    public float turnSpeedY = 4f; // Force of the player's jump
     public Transform playerView;
     private float xRotation = 0f;
 
@@ -34,8 +35,8 @@ public class PlayerController : MonoBehaviour
 
     void HandleMouseLook()
     {
-        float mouseX = Input.GetAxis("Mouse X") * turnSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * turnSpeed;
+        float mouseX = Input.GetAxis("Mouse X") * turnSpeedX;
+        float mouseY = Input.GetAxis("Mouse Y") * turnSpeedY;
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
