@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Item item;
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        
+        InventoryManager inv = other.GetComponent<InventoryManager>();
+        if (inv != null)
+        {
+            inv.AddItem(item);
+            Destroy(gameObject); // remove from world to indicate it's been picked up
+        }
     }
 }
