@@ -7,7 +7,7 @@ namespace EJETAGame {
     public interface IInteractable
     {
         GameObject gameObject { get; }
-        //Called when we want to interact with the gameobject, eg. when clicking a button;
+        //Called when we want to interact with the gameobject, when clicking 'E';
         void Interact()
         {
             if(Input.GetKeyDown(KeyCode.E))
