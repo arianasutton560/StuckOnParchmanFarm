@@ -206,11 +206,11 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 1.7, z: -0.11}
+  m_LocalPosition: {x: 0, y: 0.32500005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 930491469}
+  m_Father: {fileID: 419091237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &330585547
 MonoBehaviour:
@@ -410,6 +410,11 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!4 &419091237 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7978810107987169270, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
+  m_PrefabInstance: {fileID: 2033598065}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &816777620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -537,7 +542,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 5
-  turnSpeed: 100
+  turnSpeedX: 5
+  turnSpeedY: 4
+  playerView: {fileID: 419091237}
 --- !u!54 &930491461
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -560,16 +567,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 2
---- !u!4 &930491469 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1114260476483171701, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
-  m_PrefabInstance: {fileID: 2033598065}
-  m_PrefabAsset: {fileID: 0}
+  m_CollisionDetection: 0
 --- !u!136 &930491470
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -580,7 +582,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -590,7 +592,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.35
-  m_Height: 1.8
+  m_Height: 1.95
   m_Direction: 1
   m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!1001 &2033598065
@@ -648,7 +650,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1114260476483171701, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 7978810107987169270, guid: 7ae956b4f54394e80818898d8f4d30c6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 330585546}
     m_AddedComponents:
