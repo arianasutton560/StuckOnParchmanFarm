@@ -4,6 +4,7 @@ namespace EJETAGame
 {
     using System.Collections;
     using System.Collections.Generic;
+    using JetBrains.Annotations;
     using UnityEngine;
 
     /**
@@ -18,10 +19,19 @@ namespace EJETAGame
         public KeyCode interactionKey;
         public void Interact()
         {
+            InventoryManager playerInventory = FindAnyObjectByType<InventoryManager>();
+
             if (Input.GetKeyDown(interactionKey))
             {
-                this.GetComponent<Renderer>().material.color = RandomColor();
+                 Item Item = GetComponent<Item>();
+                if (playerInventory != null && Item != null)
+                {
+                    playerInventory.AddItem(Item);
+                    Debug.Log("Picked up " + Item.getItemName);
+                }
+            
             }
+            Destroy(gameObject);
             
         }
 
@@ -37,11 +47,6 @@ namespace EJETAGame
         public void OnInteractExit()
         {
             Debug.Log("Interaction Ended");
-        }
-
-        private Color RandomColor()
-        {
-            return randomColor = Random.ColorHSV();
         }
     }
 

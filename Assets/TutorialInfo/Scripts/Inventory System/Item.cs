@@ -4,6 +4,11 @@ using UnityEngine;
 public class Item
 {
     public string itemName;
+
+    public string getItemName()
+    {
+        return itemName;
+    }
     public Sprite itemIcon;
     
 
