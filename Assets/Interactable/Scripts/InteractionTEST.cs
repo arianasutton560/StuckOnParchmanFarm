@@ -1,6 +1,6 @@
 
 
-namespace EJETAGame
+namespace EJETAGame.Inventory
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace EJETAGame
      */
     public class InteractionTEST : MonoBehaviour, IInteractable
     {
-        private Color randomColor;
+        public Item itemData;
 
         //Which button the user must press to initiate the Interaction;
         public KeyCode interactionKey;
@@ -23,15 +23,15 @@ namespace EJETAGame
 
             if (Input.GetKeyDown(interactionKey))
             {
-                 Item Item = GetComponent<Item>();
-                if (playerInventory != null && Item != null)
+                if (playerInventory != null && itemData != null)
                 {
-                    playerInventory.AddItem(Item);
-                    Debug.Log("Picked up " + Item.getItemName);
+                    playerInventory.AddItem(itemData);
+                    Debug.Log("Picked up " + itemData.getItemName());
+                    Object.Destroy(gameObject); // currently not working
                 }
             
             }
-            Destroy(gameObject);
+
             
         }
 
