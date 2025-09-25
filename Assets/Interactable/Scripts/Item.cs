@@ -2,8 +2,8 @@ namespace EJETAGame
 {
     using UnityEngine;
 
-    [System.Serializable]
-    public class Item
+    [CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
+    public class Item : ScriptableObject
     {
         public string itemName;
 

@@ -39,8 +39,11 @@ namespace EJETAGame
                         currentInteractable = interactObj;
                     }
 
-                    //We call the Interact method from the detected object's IInteractable interface;
-                    interactObj.Interact();
+                    // ONLY call Interact() when player presses E
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        interactObj.Interact();
+                    }
 
                     //We activate our text component;
                     InteractionText.instance.textAppear.gameObject.SetActive(true);
