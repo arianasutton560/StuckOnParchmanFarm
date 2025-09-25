@@ -11,6 +11,30 @@ namespace EJETAGame.Inventory
         public Transform itemsParent;
         public GameObject inventoryPanel;
 
+        private List<InventorySlot> slots = new List<InventorySlot>();
+
+        public void UpdateUI()
+        {
+            foreach (Transform child in itemsParent)
+            {
+                Destroy(child.gameObject);
+            }
+            slots.Clear();
+
+            //Create a new slot for each item in the inventory
+            foreach (Item item in InventoryManager.Inventory.items)
+            {
+                GameObject slot = Instantiate(inventoryPanel, itemsParent);
+                InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
+
+                if (inventorySlot != null)
+                {
+                    inventorySlot.SetItem(item);
+                    slots.Add(inventorySlot);
+                }
+            }
+        }
+
         private void Awake()
         {
             if (Instance == null)

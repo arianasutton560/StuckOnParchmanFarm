@@ -27,7 +27,7 @@ namespace EJETAGame.Inventory
 
         public string GetDescription()
         {
-            return "Pick up " + item.itemName;
+            return "Press E to Interact";
         }
     }
 }
