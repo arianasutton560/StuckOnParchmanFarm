@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 757419656}
   - component: {fileID: 757419655}
   - component: {fileID: 757419661}
+  - component: {fileID: 757419663}
   m_Layer: 0
   m_Name: gameObject
   m_TagString: Player
@@ -689,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Inventory.InventoryUI
   itemsParent: {fileID: 1344491565}
-  inventoryPanel: {fileID: 6014473827417791642, guid: 13bfeaa0d1192a6458875a7b57e1004d, type: 3}
+  inventoryPanel: {fileID: 3574216579924348761, guid: d7772dcb5bc0e0041a24c3760778558f, type: 3}
 --- !u!114 &757419662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -703,6 +704,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Inventory.NewMonoBehaviourScript
   item: {fileID: 11400000, guid: 192df34c43fac3643950b1ab02de3d91, type: 2}
+--- !u!114 &757419663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757419654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a9e482f230b44c449c8ebde31cf1067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Inventory.InventoryManager
+  items: []
+  inventoryUI: {fileID: 757419661}
 --- !u!1001 &816777620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -892,6 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1344491565}
+  - component: {fileID: 1344491569}
   - component: {fileID: 1344491568}
   - component: {fileID: 1344491567}
   - component: {fileID: 1344491566}
@@ -938,8 +954,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
+  m_ChildAlignment: 1
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -985,6 +1001,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344491564}
   m_CullTransparentMesh: 1
+--- !u!114 &1344491569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344491564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc532aab9fb72d248b7b1411b9e0e9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Inventory.InventorySlot
+  icon: {fileID: 1344491567}
+  countText: {fileID: 1811986331}
 --- !u!1 &1811986330
 GameObject:
   m_ObjectHideFlags: 0
