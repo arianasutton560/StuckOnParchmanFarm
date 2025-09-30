@@ -32,6 +32,12 @@ namespace EJETAGame
             }
         }
 
+        public void UnlockFromKeypad()
+        {
+            isLocked = false;
+            OpenDoor();
+        }
+
         private void OpenDoor()
         {
             if (!isOpen)
