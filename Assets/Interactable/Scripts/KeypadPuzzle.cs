@@ -8,18 +8,23 @@ namespace EJETAGame.Interactable
     {
         [Header("Keypad Settings")]
         public string correctCode = "1234";
-        public TMP_Text inputDisplay;
+        public TextMeshProUGUI inputDisplay;
         public Door connectedDoor;  // assign the door this keypad unlocks
 
         private string currentInput = "";
+        public GameObject keypadUI;
+
+        void Update()
+        {
+            if (keypadUI.activeSelf && Input.GetKeyDown(KeyCode.Return)) { SubmitCode(); }
+        }
 
         public void ButtonPress(string number)
         {
-            if (currentInput.Length < correctCode.Length)
-            {
-                currentInput += number;
-                inputDisplay.text = currentInput;
-            }
+           
+            currentInput += number;
+            inputDisplay.text = currentInput;
+            
         }
 
         public void ClearInput()
@@ -30,7 +35,7 @@ namespace EJETAGame.Interactable
 
         public void SubmitCode()
         {
-            if (currentInput == correctCode)
+            if (currentInput.Trim() == correctCode)
             {
                 Debug.Log("Correct Code! Door unlocked.");
                 connectedDoor.UnlockFromKeypad(); // custom method in Door
@@ -39,9 +44,26 @@ namespace EJETAGame.Interactable
             {
                 Debug.Log("Incorrect Code!");
                 inputDisplay.text = "WRONG";
-                Invoke(nameof(ClearInput), 1.5f);
+                ClearInput();
             }
         }
+        public PlayerController playerController;
+        public void OpenKeypad()
+        {
+            keypadUI.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            playerController.enabled = false;
+        }
+
+        public void CloseKeypad()
+        {
+            keypadUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playerController.enabled = true;
+        }
+
     }
 }
 
