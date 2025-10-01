@@ -25,7 +25,8 @@ namespace EJETAGame.Inventory
         private void Awake()
         {
             if (Inventory == null) Inventory = this;
-            else Destroy(gameObject);
+            //else Destroy(gameObject);
+            else DontDestroyOnLoad(gameObject);
 
         }
         public void AddItem(Item item)
