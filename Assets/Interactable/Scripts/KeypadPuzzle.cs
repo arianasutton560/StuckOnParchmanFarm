@@ -17,6 +17,9 @@ namespace EJETAGame.Interactable
         void Update()
         {
             if (keypadUI.activeSelf && Input.GetKeyDown(KeyCode.Return)) { SubmitCode(); }
+            
+            //Press Escape to close keypad
+            if (Input.GetKeyDown(KeyCode.Escape)) { CloseKeypad(); }
         }
 
         public void ButtonPress(string number)
