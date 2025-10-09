@@ -47,9 +47,10 @@ namespace EJETAGame
                 transform.Rotate(0, 90, 0);
                 //move exit dorr up
                 ExitDoor exitDoor = GetComponent<ExitDoor>();
-                if (exitDoor != null)
+                if (exitDoor)
                 {
                     transform.position += new Vector3(0, 5, 0);
+                    exitDoor.WinGame();
                 }
                 isOpen = true;
             }
