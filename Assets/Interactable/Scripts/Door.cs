@@ -45,6 +45,12 @@ namespace EJETAGame
                 Debug.Log("Door opened!");
                 // Example: animate or rotate
                 transform.Rotate(0, 90, 0);
+                //move exit dorr up
+                ExitDoor exitDoor = GetComponent<ExitDoor>();
+                if (exitDoor != null)
+                {
+                    transform.position += new Vector3(0, 5, 0);
+                }
                 isOpen = true;
             }
         }
