@@ -13,5 +13,6 @@ namespace EJETAGame
         }
         public Sprite itemIcon;
 
+        public GameObject worldModel;
     }
 }
