@@ -3,6 +3,7 @@ using EJETAGame.Inventory;
 
 namespace EJETAGame.Puzzles
 {
+    //Placement puzzle
     public class PedestalSpot : MonoBehaviour, IInteractable
     {
         [Header("Correct Item")]
