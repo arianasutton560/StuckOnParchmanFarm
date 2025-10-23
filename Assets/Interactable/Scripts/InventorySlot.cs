@@ -1,13 +1,13 @@
 namespace EJETAGame.Inventory
 {
-    using TMPro;
+    //using TMPro;
     using UnityEngine;
     using UnityEngine.UI;
 
     public class InventorySlot : MonoBehaviour
     {
         public Image icon;
-        public TextMeshProUGUI countText;
+        //public TextMeshProUGUI countText;
 
         private Item item;
 
@@ -16,7 +16,7 @@ namespace EJETAGame.Inventory
             item = newItem;
             icon.sprite = newItem.itemIcon;  // Your item should have a sprite reference
             icon.enabled = true;
-            countText.text = "1"; // or item.amount if you track quantity
+           // countText.text = "1"; // or item.amount if you track quantity
         }
 
         public void ClearSlot()
@@ -24,7 +24,7 @@ namespace EJETAGame.Inventory
             item = null;
             icon.sprite = null;
             icon.enabled = false;
-            countText.text = "";
+           // countText.text = "";
         }
     }
 }
