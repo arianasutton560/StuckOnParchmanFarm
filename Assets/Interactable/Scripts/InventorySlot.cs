@@ -1,30 +1,29 @@
+using UnityEngine;
+using UnityEngine.UI;
+
 namespace EJETAGame.Inventory
 {
-    //using TMPro;
-    using UnityEngine;
-    using UnityEngine.UI;
-
     public class InventorySlot : MonoBehaviour
     {
         public Image icon;
-        //public TextMeshProUGUI countText;
-
         private Item item;
 
         public void SetItem(Item newItem)
         {
             item = newItem;
-            icon.sprite = newItem.itemIcon;  // Your item should have a sprite reference
-            icon.enabled = true;
-           // countText.text = "1"; // or item.amount if you track quantity
+            if (icon != null && item.icon != null)
+            {
+                icon.sprite = item.icon;
+                icon.color = Color.white; 
+                Debug.Log($"✅ Assigned icon for {item.itemName}: {item.icon.name}");
+            }
+            else
+            {
+                Debug.LogWarning($"⚠️ Missing icon or item icon for {newItem.itemName}");
+            }
         }
 
-        public void ClearSlot()
-        {
-            item = null;
-            icon.sprite = null;
-            icon.enabled = false;
-           // countText.text = "";
-        }
     }
 }
+
+

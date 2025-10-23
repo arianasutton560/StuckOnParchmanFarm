@@ -17,19 +17,30 @@ namespace EJETAGame.Inventory
         private void Awake()
         {
             if (Instance == null) Instance = this;
-            else if (Instance != this) Destroy(gameObject);
+            //else if (Instance != this) Destroy(gameObject);
         }
 
         public void UpdateUI()
         {
-            // Clear old slots
+            if (itemsParent == null)
+            {
+                Debug.LogError("InventoryUI: itemsParent (Content) is not assigned or has been destroyed!");
+                return;
+            }
+
             foreach (Transform child in itemsParent)
-                Destroy(child.gameObject);
+            {
+                if (child != null)
+                    Destroy(child.gameObject);
+            }
+
             slots.Clear();
 
-            // Create a new slot for each item
+            // Create a new slot for each item in the inventory
             foreach (Item item in InventoryManager.Inventory.items)
             {
+                if (item == null) continue;
+
                 GameObject slot = Instantiate(slotPrefab, itemsParent);
                 InventorySlot inventorySlot = slot.GetComponent<InventorySlot>();
 
@@ -38,11 +49,8 @@ namespace EJETAGame.Inventory
                     inventorySlot.SetItem(item);
                     slots.Add(inventorySlot);
                 }
-                else
-                {
-                    Debug.LogWarning("Slot prefab missing InventorySlot component!");
-                }
             }
         }
+
     }
 }
