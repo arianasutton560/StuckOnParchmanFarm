@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: pedestalObject
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Item
   itemName: pedestalObject
-  itemIcon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 751aa1b6637101946b2fdbb7aa27d6ad, type: 3}
   worldModel: {fileID: 6667250562042625571, guid: f98bfe77a7182fe41a08e866cbebeaae, type: 3}

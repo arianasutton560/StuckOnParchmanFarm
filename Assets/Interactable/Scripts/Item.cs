@@ -11,7 +11,7 @@ namespace EJETAGame
         {
             return itemName;
         }
-        public Sprite itemIcon;
+        public Sprite icon;
 
         public GameObject worldModel;
     }
