@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a75c83348dd5cf499b82cb88ae77029, type: 3}
   m_Name: needleItem
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Item
-  itemName: 
-  icon: {fileID: 0}
+  itemName: needle
+  icon: {fileID: 21300000, guid: 08c40cdc0d629f44aae82682312776d2, type: 3}
   worldModel: {fileID: 0}
