@@ -1852,7 +1852,7 @@ Transform:
   m_GameObject: {fileID: 258725052}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.654, y: 0.329, z: -3.078}
+  m_LocalPosition: {x: -5.695, y: 0.789, z: -3.013}
   m_LocalScale: {x: 0.8014241, y: 0.37266, z: 0.6200681}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4218,6 +4218,8 @@ GameObject:
   - component: {fileID: 724851288}
   - component: {fileID: 724851287}
   - component: {fileID: 724851290}
+  - component: {fileID: 724851291}
+  - component: {fileID: 724851292}
   m_Layer: 0
   m_Name: locketWallOpening
   m_TagString: Untagged
@@ -4329,8 +4331,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c203545ef66e6543a5a59703dddf99b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Door
-  isLocked: 1
+  isLocked: 0
   requiredKey: {fileID: 0}
+--- !u!114 &724851291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724851285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5eb398b224d9046b8d0f7d3fe7d5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Interactable.Keypad
+  correctCode: 1940
+  inputDisplay: {fileID: 1206164896}
+  connectedDoor: {fileID: 724851290}
+  keypadUI: {fileID: 625904984}
+  playerController: {fileID: 0}
+--- !u!114 &724851292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724851285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f779724460cc1d24a8e2ad2aac226133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: InteractionSpace::EJETAGame.KeypadInteractable
+  keypadUI: {fileID: 625904984}
 --- !u!1 &743260341
 GameObject:
   m_ObjectHideFlags: 0
@@ -6905,7 +6937,6 @@ GameObject:
   - component: {fileID: 1372685293}
   - component: {fileID: 1372685292}
   - component: {fileID: 1372685291}
-  - component: {fileID: 1372685290}
   m_Layer: 0
   m_Name: locketKeypad
   m_TagString: Untagged
@@ -6928,23 +6959,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 258725053}
   m_LocalEulerAnglesHint: {x: 0, y: -90.306, z: 0}
---- !u!114 &1372685290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1372685288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5eb398b224d9046b8d0f7d3fe7d5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Interactable.Keypad
-  correctCode: 1940
-  inputDisplay: {fileID: 1206164896}
-  connectedDoor: {fileID: 724851290}
-  keypadUI: {fileID: 625904984}
-  playerController: {fileID: 0}
 --- !u!65 &1372685291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8029,6 +8043,63 @@ Transform:
   - {fileID: 1427091895}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1565273771
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7300603115236842885, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_Name
+      value: rpgpp_lt_crate_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.4199576
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.429
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.6003246
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.57811874
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.81595266
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 109.363
+      objectReference: {fileID: 0}
+    - target: {fileID: 7933974162475648831, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a0e0d0d39aadf2a4ebf74d55fc21b558, type: 3}
 --- !u!1 &1566493747
 GameObject:
   m_ObjectHideFlags: 0
@@ -8499,15 +8570,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.3424
+      value: -3.382
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4606
+      value: 0.917
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.6468
+      value: 4.718
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
       propertyPath: m_LocalRotation.w
@@ -9343,6 +9414,7 @@ SceneRoots:
   - {fileID: 1122374967}
   - {fileID: 7949479536641625552}
   - {fileID: 1210520729}
+  - {fileID: 1565273771}
   - {fileID: 1517890548}
   - {fileID: 123322864}
   - {fileID: 258725053}
