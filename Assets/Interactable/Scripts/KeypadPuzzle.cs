@@ -1,18 +1,23 @@
 namespace EJETAGame.Interactable
 {
-
     using UnityEngine;
     using TMPro;
+    using UnityEngine.UI;
 
     public class Keypad : MonoBehaviour
     {
         [Header("Keypad Settings")]
-        public string correctCode = "1234";
+        public string correctCode = "1940";
         public TextMeshProUGUI inputDisplay;
         public Door connectedDoor;  // assign the door this keypad unlocks
+        public GameObject keypadUI;
+        public PlayerController playerController;
+
+        [Header("UI Buttons")]
+        public Button[] keypadButtons;
 
         private string currentInput = "";
-        public GameObject keypadUI;
+        private bool isLockedOut = false; 
 
         void Update()
         {
@@ -24,7 +29,7 @@ namespace EJETAGame.Interactable
         
         void Start()
         {
-            if(connectedDoor == null)
+            if (connectedDoor == null)
             {
                 connectedDoor = GetComponent<Door>();
             }
@@ -32,24 +37,28 @@ namespace EJETAGame.Interactable
 
         public void ButtonPress(string number)
         {
-           
+            if (isLockedOut) return;
             currentInput += number;
             inputDisplay.text = currentInput;
-            
         }
 
         public void ClearInput()
         {
+            if (isLockedOut) return; 
             currentInput = "";
             inputDisplay.text = "";
         }
 
         public void SubmitCode()
         {
+            if (isLockedOut) return; 
+
             if (currentInput.Trim() == correctCode)
             {
                 Debug.Log("Correct Code! Door unlocked.");
                 connectedDoor.UnlockFromKeypad(); // custom method in Door
+                inputDisplay.text = "UNLOCKED";
+                DisableKeypad();
             }
             else
             {
@@ -58,7 +67,7 @@ namespace EJETAGame.Interactable
                 ClearInput();
             }
         }
-        public PlayerController playerController;
+
         public void OpenKeypad()
         {
             keypadUI.SetActive(true);
@@ -75,6 +84,16 @@ namespace EJETAGame.Interactable
             playerController.enabled = true;
         }
 
+        private void DisableKeypad()
+        {
+            isLockedOut = true;
+
+            foreach (Button btn in keypadButtons)
+            {
+                btn.interactable = false; // makes all buttons unclickable
+            }
+        }
     }
 }
+
 
