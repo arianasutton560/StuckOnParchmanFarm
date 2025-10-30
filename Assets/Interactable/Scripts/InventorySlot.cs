@@ -23,12 +23,25 @@ namespace EJETAGame.Inventory
             {
                 Debug.LogWarning($"⚠️ Missing icon or item icon for {newItem.itemName}");
             }
-            
-            if( nametext != null)
+
+            if (nametext != null)
             {
                 nametext.text = item.getItemName();
             }
-            
+        }
+        
+        public void ClearSlot()
+        {
+            item = null;
+            if (icon != null)
+            {
+                icon.sprite = null;
+                icon.color = Color.clear;
+            }
+            if (nametext != null)
+            {
+                nametext.text = "";
+            }
         }
 
     }
