@@ -255,149 +255,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99561}
   m_CullTransparentMesh: 1
---- !u!1 &4532891
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4532899}
-  - component: {fileID: 4532898}
-  - component: {fileID: 4532897}
-  - component: {fileID: 4532896}
-  - component: {fileID: 4532892}
-  - component: {fileID: 4532900}
-  m_Layer: 0
-  m_Name: gameObject2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &4532892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b5eb398b224d9046b8d0f7d3fe7d5b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Interactable.Keypad
-  correctCode: 1234
-  inputDisplay: {fileID: 1206164896}
-  connectedDoor: {fileID: 1029623816}
-  keypadUI: {fileID: 625904984}
-  playerController: {fileID: 0}
---- !u!135 &4532896
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &4532897
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &4532898
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &4532899
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.8722706, y: 0.24999, z: 2.6902204}
-  m_LocalScale: {x: 0.38119, y: 0.3704516, z: 0.5034}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1517890548}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4532900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4532891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f779724460cc1d24a8e2ad2aac226133, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: InteractionSpace::EJETAGame.KeypadInteractable
-  keypadUI: {fileID: 625904984}
 --- !u!1 &72185508
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +338,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ClearInput
         m_Mode: 1
@@ -614,7 +471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -693,7 +550,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1029623820}
   - {fileID: 387215309}
   - {fileID: 170730666}
   m_Father: {fileID: 0}
@@ -1777,7 +1633,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -1786,7 +1642,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 4
+          m_StringArgument: 0
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &257906500
@@ -2549,7 +2405,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -2842,6 +2698,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 643111770}
   m_LocalEulerAnglesHint: {x: 0, y: -89.661, z: 0}
+--- !u!1 &505958375 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
+  m_PrefabInstance: {fileID: 1742234720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &508751623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,7 +3826,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -4155,7 +4016,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -4217,9 +4078,9 @@ GameObject:
   - component: {fileID: 724851289}
   - component: {fileID: 724851288}
   - component: {fileID: 724851287}
-  - component: {fileID: 724851290}
   - component: {fileID: 724851291}
   - component: {fileID: 724851292}
+  - component: {fileID: 724851290}
   m_Layer: 0
   m_Name: locketWallOpening
   m_TagString: Untagged
@@ -4350,6 +4211,7 @@ MonoBehaviour:
   connectedDoor: {fileID: 724851290}
   keypadUI: {fileID: 625904984}
   playerController: {fileID: 0}
+  keypadButtons: []
 --- !u!114 &724851292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4521,7 +4383,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -5257,7 +5119,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -5536,132 +5398,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011064677}
   m_CullTransparentMesh: 1
---- !u!1 &1029623815
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1029623820}
-  - component: {fileID: 1029623819}
-  - component: {fileID: 1029623818}
-  - component: {fileID: 1029623817}
-  - component: {fileID: 1029623816}
-  m_Layer: 0
-  m_Name: DoorKeypad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1029623816
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029623815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c203545ef66e6543a5a59703dddf99b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Door
-  isLocked: 1
-  requiredKey: {fileID: 11400000, guid: 192df34c43fac3643950b1ab02de3d91, type: 2}
---- !u!65 &1029623817
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029623815}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!23 &1029623818
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029623815}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1029623819
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029623815}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1029623820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1029623815}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.32, y: 1.19, z: -4.69}
-  m_LocalScale: {x: 0.114974566, y: 2.436344, z: 1.4813}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 123322864}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1104840909
 GameObject:
   m_ObjectHideFlags: 0
@@ -6653,7 +6389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -7119,7 +6855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -7252,7 +6988,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: ButtonPress
         m_Mode: 5
@@ -7826,7 +7562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1716e599fb056014ca8f5786b3a82fcf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.2
+      value: -7.03
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1716e599fb056014ca8f5786b3a82fcf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7834,7 +7570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1716e599fb056014ca8f5786b3a82fcf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.15
+      value: 5.59
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1716e599fb056014ca8f5786b3a82fcf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7952,7 +7688,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4532892}
+      - m_Target: {fileID: 724851291}
         m_TargetAssemblyTypeName: EJETAGame.Interactable.Keypad, InteractionSpace
         m_MethodName: SubmitCode
         m_Mode: 1
@@ -8031,14 +7767,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1632670182}
   - {fileID: 608319632}
   - {fileID: 1145801058}
+  - {fileID: 1632670182}
   - {fileID: 379281244}
   - {fileID: 1742234721}
   - {fileID: 622728800}
   - {fileID: 1104840910}
-  - {fileID: 4532899}
   - {fileID: 757419659}
   - {fileID: 1427091895}
   m_Father: {fileID: 0}
@@ -8615,13 +8350,55 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1742234725}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1742234724}
   m_SourcePrefab: {fileID: 100100000, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
 --- !u!4 &1742234721 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 785eaa06e0db1124eb99d788fc20f121, type: 3}
   m_PrefabInstance: {fileID: 1742234720}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1742234724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505958375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e0a8cfd100db0a418be79024104b7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: InteractionSpace::EJETAGame.Inventory.NewMonoBehaviourScript
+  item: {fileID: 11400000, guid: 4111b83ee932abb48a5ef360de9f2681, type: 2}
+--- !u!136 &1742234725
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505958375}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.019203879
+  m_Height: 1.667576
+  m_Direction: 1
+  m_Center: {x: -0.0005280755, y: 0.08332479, z: -0.003985597}
 --- !u!1001 &1754831881
 PrefabInstance:
   m_ObjectHideFlags: 0
