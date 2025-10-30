@@ -51,7 +51,7 @@ namespace EJETAGame.Interactable
 
         public void SubmitCode()
         {
-            if (isLockedOut) return; 
+            if (isLockedOut) return;
 
             if (currentInput.Trim() == correctCode)
             {
@@ -59,6 +59,9 @@ namespace EJETAGame.Interactable
                 connectedDoor.UnlockFromKeypad(); // custom method in Door
                 inputDisplay.text = "UNLOCKED";
                 DisableKeypad();
+                CloseKeypad();
+
+                GetComponent<Collider>().enabled = false; // disable further interaction
             }
             else
             {
@@ -66,6 +69,7 @@ namespace EJETAGame.Interactable
                 inputDisplay.text = "WRONG";
                 ClearInput();
             }
+            
         }
 
         public void OpenKeypad()
