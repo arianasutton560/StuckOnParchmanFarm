@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: InteractionSpace::EJETAGame.Item
   itemName: rock
   icon: {fileID: 21300000, guid: acb2119d300428c4d9a3b13ab14bd2a9, type: 3}
-  worldModel: {fileID: 0}
+  worldModel: {fileID: 6497623295156480050, guid: 89abbab325ec35f45bf3cec78260b323, type: 3}
