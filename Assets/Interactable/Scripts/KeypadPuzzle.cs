@@ -59,7 +59,6 @@ namespace EJETAGame.Interactable
                 connectedDoor.UnlockFromKeypad(); // custom method in Door
                 inputDisplay.text = "UNLOCKED";
                 DisableKeypad();
-                CloseKeypad();
 
                 GetComponent<Collider>().enabled = false; // disable further interaction
             }
