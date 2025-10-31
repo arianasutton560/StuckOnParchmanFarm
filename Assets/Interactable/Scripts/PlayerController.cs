@@ -1,31 +1,32 @@
 using UnityEngine;
 
-//This Script allows the player to control their character 
+[RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-
-    public float speed = 5f; // Speed of the player
-    public float turnSpeedX = 200f; // Force of the player's jump
-    public float turnSpeedY = 200f; // Force of the player's jump
+    public float speed = 5f;
+    public float turnSpeedX = 200f;
+    public float turnSpeedY = 200f;
     public Transform PlayerCameraRoot;
-    private float xRotation = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private CharacterController controller;
+    private float xRotation = 0f;
+    private Vector3 velocity;
+    public float gravity = -9.81f;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
+        controller = GetComponent<CharacterController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        HandleLook();
         HandleMovement();
-        HandleMouseLook();
     }
 
-    void HandleMovement()
+    void HandleLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * turnSpeedX * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * turnSpeedY * Time.deltaTime;
@@ -37,15 +38,41 @@ public class PlayerController : MonoBehaviour
         PlayerCameraRoot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 
-    void HandleMouseLook()
+    void HandleMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * horizontal + transform.forward * vertical;
-        transform.position += move * speed * Time.deltaTime;
+        // Get camera direction
+        Transform cam = Camera.main.transform;
 
-    }   
+        // Calculate camera forward and right directions, but flatten them (ignore camera tilt)
+        Vector3 camForward = cam.forward;
+        Vector3 camRight = cam.right;
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
 
+        // Movement relative to camera
+        Vector3 move = camForward * vertical + camRight * horizontal;
+
+        controller.Move(move * speed * Time.deltaTime);
+
+        // Apply gravity
+        if (controller.isGrounded)
+        {
+            velocity.y = -2f;
+        }
+        else
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+
+        controller.Move(velocity * Time.deltaTime);
+    }
 
 }
+
+
+
