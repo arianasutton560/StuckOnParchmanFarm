@@ -8,9 +8,9 @@ namespace EJETAGame
         [Header("Door Settings")]
         public bool isLocked = true;
         public Item requiredKey;   // assign the key item from your project
-        private bool isOpen = false;
+        protected bool isOpen = false;
 
-        public void Interact()
+        public virtual void Interact()
         {
             if (isLocked)
             {
