@@ -17,10 +17,16 @@ namespace EJETAGame
 
         private MeshRenderer doorRenderer;
 
+        public AudioClip crumbleSound;
+        private AudioSource audioSource;
+        public AudioClip itemUseSound;
+
+
 
         private void Start()
         {
             doorRenderer = GetComponent<MeshRenderer>();
+            audioSource = GetComponent<AudioSource>();
             UpdateVisualStage();
         }
 
@@ -56,6 +62,11 @@ namespace EJETAGame
                 InventoryManager.Inventory.RemoveItem(item);
                 usedItemCount++;
 
+                if (itemUseSound != null && audioSource != null)
+                {
+                    audioSource.PlayOneShot(itemUseSound);
+                }
+
                 Debug.Log($"Used {item.itemName} on the Exit Door ({usedItemCount}/{requiredItems.Length})");
 
                 // Update break material
@@ -89,6 +100,9 @@ namespace EJETAGame
         {
             if (!isOpen)
             {
+                if (crumbleSound != null && audioSource != null)
+                    audioSource.PlayOneShot(crumbleSound);
+                
                 Debug.Log("EXIT DOOR SLIDING DOWN");
 
                 StartCoroutine(SlideDoorDown());
@@ -150,12 +164,15 @@ namespace EJETAGame
             {
                 Debug.Log("Trying to activate UI: " + winUI.name);
                 winUI.SetActive(true);
-                Debug.Log( "Win UI Activated!");
+                Debug.Log("Win UI Activated!");
             }
             else
             {
                 Debug.LogWarning("Win UI not assigned!");
             }
+            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
             Time.timeScale = 0f;
         }
