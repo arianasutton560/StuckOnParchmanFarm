@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using EJETAGame.Inventory;
 
+
 namespace EJETAGame
 {
     public class ExitDoor : Door
@@ -15,6 +16,7 @@ namespace EJETAGame
         private int usedItemCount = 0;
 
         private MeshRenderer doorRenderer;
+
 
         private void Start()
         {
@@ -41,36 +43,38 @@ namespace EJETAGame
 
         private void TryUseRequiredItem()
         {
-            if (usedItemCount < requiredItems.Length)
+            // Find any required item the player has but has not used yet
+            for (int i = 0; i < requiredItems.Length; i++)
             {
-                Item currentItem = requiredItems[usedItemCount];
+                Item item = requiredItems[i];
 
-                if (InventoryManager.Inventory.HasItem(currentItem))
+                // Skip items that are no longer in inventory
+                if (!InventoryManager.Inventory.HasItem(item))
+                    continue;
+
+                // Use this item
+                InventoryManager.Inventory.RemoveItem(item);
+                usedItemCount++;
+
+                Debug.Log($"Used {item.itemName} on the Exit Door ({usedItemCount}/{requiredItems.Length})");
+
+                // Update break material
+                UpdateVisualStage();
+
+                // If all items have been used → unlock door
+                if (usedItemCount >= requiredItems.Length)
                 {
-                    // Use the item
-                    InventoryManager.Inventory.RemoveItem(currentItem);
-                    usedItemCount++;
-
-                    // Update door visuals
-                    UpdateVisualStage();
-
-                    Debug.Log($"Used {currentItem.itemName} on the Exit Door ({usedItemCount}/{requiredItems.Length})");
-
-                    if (usedItemCount >= requiredItems.Length)
-                    {
-                        UnlockDoor();
-                    }
+                    Debug.Log("All required items used — Calling UnlockDoor()");
+                    UnlockDoor();
                 }
-                else
-                {
-                    Debug.Log($"Missing required item: {currentItem.itemName}");
-                }
+
+                return; // Stop after using one matching item
             }
-            else
-            {
-                Debug.Log("All required items have already been used.");
-            }
+
+            Debug.Log("You don't have any usable required items.");
         }
+
+
 
         private void UpdateVisualStage()
         {
@@ -81,10 +85,41 @@ namespace EJETAGame
             }
         }
 
+        protected override void OpenDoor()
+        {
+            if (!isOpen)
+            {
+                Debug.Log("EXIT DOOR SLIDING DOWN ✅");
+
+                StartCoroutine(SlideDoorDown());
+                isOpen = true;
+            }
+        }
+
+        private IEnumerator SlideDoorDown()
+        {
+            Vector3 startPos = transform.position;
+            Vector3 endPos = startPos + new Vector3(0, -3.5f, 0); // adjust drop depth here
+            float duration = 1.5f; // how fast the door lowers
+            float t = 0f;
+
+            while (t < duration)
+            {
+                transform.position = Vector3.Lerp(startPos, endPos, t / duration);
+                t += Time.deltaTime;
+                yield return null;
+            }
+
+            transform.position = endPos;
+        }
+
+
         private void UnlockDoor()
         {
             isLocked = false;
             Debug.Log(" Exit door fully broken — unlocked!");
+
+            OpenDoor();
         }
 
         private void OnTriggerEnter(Collider other)

@@ -38,23 +38,17 @@ namespace EJETAGame
             OpenDoor();
         }
 
-        private void OpenDoor()
+        protected virtual void OpenDoor()
         {
             if (!isOpen)
             {
                 Debug.Log("Door opened!");
-                // Example: animate or rotate
+                // simple open animation
                 transform.Rotate(0, 90, 0);
-                //move exit dorr up
-                ExitDoor exitDoor = GetComponent<ExitDoor>();
-                if (exitDoor)
-                {
-                    transform.position += new Vector3(0, 5, 0);
-                    exitDoor.WinGame();
-                }
                 isOpen = true;
             }
         }
+
 
         public string GetDescription()
         {
