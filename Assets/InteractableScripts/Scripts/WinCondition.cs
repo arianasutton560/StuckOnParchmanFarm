@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using EJETAGame.Inventory;
-
+using UnityEngine.SceneManagement;
 
 namespace EJETAGame
 {
@@ -89,7 +89,7 @@ namespace EJETAGame
         {
             if (!isOpen)
             {
-                Debug.Log("EXIT DOOR SLIDING DOWN ✅");
+                Debug.Log("EXIT DOOR SLIDING DOWN");
 
                 StartCoroutine(SlideDoorDown());
                 isOpen = true;
@@ -136,12 +136,19 @@ namespace EJETAGame
             StartCoroutine(ShowWinUIDelayed());
         }
 
+        public void RestartGame()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
         private IEnumerator ShowWinUIDelayed()
         {
             yield return new WaitForSecondsRealtime(2f);
 
             if (winUI != null)
             {
+                Debug.Log("Trying to activate UI: " + winUI.name);
                 winUI.SetActive(true);
                 Debug.Log( "Win UI Activated!");
             }
