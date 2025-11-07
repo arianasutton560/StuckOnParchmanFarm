@@ -50,11 +50,9 @@ namespace EJETAGame.Puzzles
 
             if (requiredItem.worldModel != null)
             {
-                // ✅ Spawn the item
                 GameObject placed = Instantiate(requiredItem.worldModel, placePosition.position, placePosition.rotation);
                 placed.transform.localScale = requiredItem.worldModel.transform.localScale;
 
-                // ✅ Add Rigidbody so it can fall
                 Rigidbody itemRb = placed.GetComponent<Rigidbody>();
                 if (itemRb == null)
                     itemRb = placed.AddComponent<Rigidbody>();
@@ -63,11 +61,9 @@ namespace EJETAGame.Puzzles
                 itemRb.isKinematic = false;
                 itemRb.AddForce(Vector3.up * itemFallForce, ForceMode.Impulse);
 
-                // ✅ Remove from inventory
                 InventoryManager.Inventory.RemoveItem(requiredItem);
                 isPlaced = true;
 
-                // ✅ Make the pedestal fall
                 StartCoroutine(FallAfterDelay());
 
                 Debug.Log($"Placed {requiredItem.itemName} and pedestal is falling!");

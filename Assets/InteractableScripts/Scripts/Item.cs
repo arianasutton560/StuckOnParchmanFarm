@@ -14,5 +14,6 @@ namespace EJETAGame
         public Sprite icon;
 
         public GameObject worldModel;
+        public AudioClip pickupSound;
     }
 }
