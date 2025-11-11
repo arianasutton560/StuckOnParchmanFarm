@@ -153,7 +153,13 @@ namespace EJETAGame
         public void RestartGame()
         {
             Time.timeScale = 1f;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("StartMenu");
+        }
+
+        public void QuitToMenu()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene("StartMenu");
         }
 
         private IEnumerator ShowWinUIDelayed()
