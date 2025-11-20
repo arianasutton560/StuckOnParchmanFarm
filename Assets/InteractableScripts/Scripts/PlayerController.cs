@@ -4,8 +4,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 5f;
-    public float turnSpeedX = 200f;
-    public float turnSpeedY = 200f;
+
+    // mouse sensitivity
+    public float mouseSensitivityX = 2f;
+    public float mouseSensitivityY = 2f;
+
     public Transform PlayerCameraRoot;
 
     private CharacterController controller;
@@ -28,11 +31,13 @@ public class PlayerController : MonoBehaviour
 
     void HandleLook()
     {
-        float mouseX = Input.GetAxis("Mouse X") * turnSpeedX * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * turnSpeedY * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivityX;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivityY;
 
+        // Rotate the player body only on the Y axis
         transform.Rotate(Vector3.up * mouseX);
 
+        // Rotate the camera on the X axis only
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         PlayerCameraRoot.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
@@ -43,19 +48,8 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Get camera direction
-        Transform cam = Camera.main.transform;
-
-        // Calculate camera forward and right directions, but flatten them (ignore camera tilt)
-        Vector3 camForward = cam.forward;
-        Vector3 camRight = cam.right;
-        camForward.y = 0f;
-        camRight.y = 0f;
-        camForward.Normalize();
-        camRight.Normalize();
-
-        // Movement relative to camera
-        Vector3 move = camForward * vertical + camRight * horizontal;
+        // Move relative to the players forward direction (NOT camera)
+        Vector3 move = transform.forward * vertical + transform.right * horizontal;
 
         controller.Move(move * speed * Time.deltaTime);
 
@@ -71,8 +65,9 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
     }
-
 }
+
+
 
 
 
