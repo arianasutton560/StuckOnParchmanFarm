@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace EJETAGame.Inventory
 {
@@ -9,15 +8,24 @@ namespace EJETAGame.Inventory
         public static InventoryUI Instance;
 
         [Header("UI References")]
-        public Transform itemsParent;      // Parent that holds item slots
-        public GameObject slotPrefab;      // Prefab for individual item slot
+        public Transform itemsParent;
+        public GameObject slotPrefab;
 
         private List<InventorySlot> slots = new List<InventorySlot>();
 
         private void Awake()
         {
-            if (Instance == null) Instance = this;
-            //else if (Instance != this) Destroy(gameObject);
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+            Instance = this;
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this) Instance = null;
         }
 
         public void UpdateUI()
@@ -29,14 +37,10 @@ namespace EJETAGame.Inventory
             }
 
             foreach (Transform child in itemsParent)
-            {
-                if (child != null)
-                    Destroy(child.gameObject);
-            }
+                if (child != null) Destroy(child.gameObject);
 
             slots.Clear();
 
-            // Create a new slot for each item in the inventory
             foreach (Item item in InventoryManager.Inventory.items)
             {
                 if (item == null) continue;
@@ -51,6 +55,6 @@ namespace EJETAGame.Inventory
                 }
             }
         }
-
     }
 }
+

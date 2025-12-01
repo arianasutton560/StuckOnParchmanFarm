@@ -19,54 +19,61 @@ namespace EJETAGame
 
 
         private void Update()
-        {
-            //We send a ray to detect all objects;
+{
             Ray r = new Ray(interactorSource.position, interactorSource.forward);
+
             if (Physics.Raycast(r, out RaycastHit hitInfo, interactRange))
             {
                 detectedObject = hitInfo.collider.gameObject;
-                //We check if the object we collided with has the IInteractable interface;
-                if (detectedObject.TryGetComponent(out IInteractable interactObj))
+
+                IInteractable interactObj = null;
+
+                if (!detectedObject.TryGetComponent(out interactObj))
+                {
+                    interactObj = detectedObject.GetComponentInParent<IInteractable>();
+                }
+
+                if (interactObj != null)
                 {
                     if (currentInteractable != interactObj)
                     {
-                        //Exit the previous interactable object if exists;
                         if (currentInteractable != null)
                             currentInteractable.OnInteractExit();
 
-                        //Enter the new interactable object;
                         interactObj.OnInteractEnter();
                         currentInteractable = interactObj;
                     }
 
-                    // ONLY call Interact() when player presses E
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         interactObj.Interact();
                     }
 
-                    //We activate our text component;
                     InteractionText.instance.textAppear.gameObject.SetActive(true);
                 }
                 else
                 {
-                    // No object detected, exit the previous interactable object if exists
                     if (currentInteractable != null)
                     {
-                        //We deactivate our text component;
                         InteractionText.instance.textAppear.gameObject.SetActive(false);
                         currentInteractable.OnInteractExit();
                         currentInteractable = null;
                     }
-
                 }
             }
             else
             {
+                
                 InteractionText.instance.textAppear.gameObject.SetActive(false);
-            }
 
+                if (currentInteractable != null)
+                {
+                    currentInteractable.OnInteractExit();
+                    currentInteractable = null;
+                }
+            }
         }
+
 
 
 
